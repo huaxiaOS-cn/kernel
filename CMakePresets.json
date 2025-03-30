@@ -1,0 +1,25 @@
+{
+    "version": 4,
+    "configurePresets": [
+        {
+            "name": "debug",
+            "displayName": "调试配置",
+            "description": "构建带有调试符号",
+            "binaryDir": "${sourceDir}/build/debug",
+            "cacheVariables": { 
+                "CMAKE_BUILD_TYPE": "Debug",
+                "ENABLE_FEATURE": "ON"
+            }
+        },
+        {
+            "name": "release",
+            "displayName": "发布配置",
+            "description": "构建优化的发布版本",
+            "binaryDir": "${sourceDir}/build/release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "ENABLE_FEATURE": "OFF"
+            }
+        }
+    ]
+}

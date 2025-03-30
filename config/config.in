@@ -1,0 +1,3 @@
+# config.in
+set(MY_OPTION "@MY_OPTION@")
+set(MY_VALUE "@MY_VALUE@")

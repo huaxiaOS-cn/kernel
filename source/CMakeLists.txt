@@ -1,0 +1,9 @@
+add_subdirectory(${CMAKE_SOURCE_DIR}/source/arch/${CMAKE_SYSTEM_PROCESSOR})     # 架构
+add_subdirectory(${CMAKE_SOURCE_DIR}/source/core)                               # 内核核心
+add_subdirectory(${CMAKE_SOURCE_DIR}/source/drivers)                            # 驱动程序
+add_subdirectory(${CMAKE_SOURCE_DIR}/source/file_system)                        # 文件系统
+add_subdirectory(${CMAKE_SOURCE_DIR}/source/net)                                # 网络协议栈
+add_subdirectory(${CMAKE_SOURCE_DIR}/source/cross_device)                       # 交叉设备支持
+add_subdirectory(${CMAKE_SOURCE_DIR}/source/modules)                            # 模块
+add_subdirectory(${CMAKE_SOURCE_DIR}/source/secure)                             # 安全与加密
+add_subdirectory(${CMAKE_SOURCE_DIR}/source/usr_support)                        # 用户空间支持

@@ -1,4 +1,4 @@
-# 该文件用于配置交叉编译工具链
+# 该文件用于配置交叉编译工具链 **适用于ARM-Cortex-M3 架构的裸机系统**
 # 启用交叉编译模式
 set(CMAKE_CROSSCOMPILING TRUE)
 set(CMAKE_SYSTEM_VERSION 1)
@@ -7,10 +7,9 @@ set(C_TOOLCHAIN_PATH /usr/local/bin/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-
 # C 语言交叉编译工具链配置
 set(CMAKE_C_COMPILER ${C_TOOLCHAIN_PATH}/arm-none-eabi-gcc)
 set(CMAKE_CXX_COMPILER ${C_TOOLCHAIN_PATH}/arm-none-eabi-g++)
-
 # Rust 语言交叉编译工具链配置
 set(CMAKE_RUST_COMPILER rustc)
-set(CMAKE_RUST_FLAGS "--target=armv7-unknown-linux-gnueabihf")
+set(CMAKE_RUST_FLAGS "--target=armv7m-none-eabi")
 
 # 设置查找路径模式
 # 程序不在指定的根路径查找
