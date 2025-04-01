@@ -5,8 +5,7 @@ cmake_minimum_required(VERSION 3.19.0)
 # 定义项目名称和语言
 project(huaxiaOSkernel VERSION 0.1.0)
 set(CMAKE_SYSTEM_NAME huaxiaOSkernel)               # 设置目标系统
-# 设置目标架构 **按需修改**
-set(CMAKE_SYSTEM_PROCESSOR arm架构)
+
 # 包含 交叉编译工具链文件，配合目标架构使用
 include(${CMAKE_SOURCE_DIR}/config/cross_compile_toolchain.cmake)
 include(${CMAKE_SOURCE_DIR}/config/config.cmake)

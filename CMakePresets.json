@@ -1,25 +1,43 @@
 {
-    "version": 4,
+    "version": 8,
     "configurePresets": [
         {
-            "name": "debug",
+            "name": "debug_config",
             "displayName": "调试配置",
-            "description": "构建带有调试符号",
-            "binaryDir": "${sourceDir}/build/debug",
-            "cacheVariables": { 
+            "description": "设置 生成器、版本和目录",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/output/${presetName}",
+            "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "ENABLE_FEATURE": "ON"
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/config/cross_compile_toolchain.cmake",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/output/${presetName}"
             }
         },
         {
-            "name": "release",
+            "name": "release_config",
             "displayName": "发布配置",
-            "description": "构建优化的发布版本",
-            "binaryDir": "${sourceDir}/build/release",
+            "description": "设置 生成器、版本和目录",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/output/${presetName}",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
-                "ENABLE_FEATURE": "OFF"
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/config/cross_compile_toolchain.cmake",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/output/${presetName}"
             }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "debug_build",
+            "description": "使用调试配置进行构建",
+            "displayName": "调试编译",
+            "configurePreset": "debug_config"
+        },
+        {
+            "name": "release_build",
+            "description": "使用发布配置进行构建",
+            "displayName": "发布编译",
+            "configurePreset": "release_config"
         }
     ]
 }
