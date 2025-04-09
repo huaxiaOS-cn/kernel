@@ -6,6 +6,6 @@
 /* 虚拟化扩展 */
 // 该功能未实现，实现后删除此行注释
 #error "Virtualization extension is not implemented yet."
-.weak __hyp_stub_install
-__hyp_stub_install:
+.globl __g_func_hyp_stub_install
+__g_func_hyp_stub_install:
     bx lr

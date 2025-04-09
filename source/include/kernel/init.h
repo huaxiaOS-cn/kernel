@@ -21,19 +21,19 @@
  */
 
 /* 这些宏适用于所有代码 */
-#define __init		__section(".init.text") __cold  __latent_entropy __noinitretpoline
-#define __initdata	__section(".init.data")
-#define __initconst	__section(".init.rodata")
-#define __exitdata	__section(".exit.data")
-#define __exit_call	__used __section(".exitcall.exit")
+#define __init        __section(".init.text") __cold  __latent_entropy __noinitretpoline
+#define __initdata    __section(".init.data")
+#define __initconst    __section(".init.rodata")
+#define __exitdata    __section(".exit.data")
+#define __exit_call    __used __section(".exitcall.exit")
 
 /* 对于汇编 */
-#define __START		.section	".start.text","ax"
-#define __INIT		.section	".init.text","ax"
-#define __FINIT		.previous
+#define __START        .section    ".start.text","ax"
+#define __INIT        .section    ".init.text","ax"
+#define __FINIT        .previous
 
-#define __INITDATA	.section	".init.data","aw",%progbits
-#define __INITRODATA	.section	".init.rodata","a",%progbits
-#define __FINITDATA	.previous
+#define __INITDATA    .section    ".init.data","aw",%progbits
+#define __INITRODATA    .section    ".init.rodata","a",%progbits
+#define __FINITDATA    .previous
 
 #endif /* _HUAXIAOS_INIT_H */

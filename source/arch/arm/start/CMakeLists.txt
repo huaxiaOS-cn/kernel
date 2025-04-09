@@ -1,13 +1,22 @@
-# 清空源文件列表
+# 该路径包含架构下启动相关的功能文件
 set(SUBARCH_SOURCES "")
 
-# 如果启用了特性 Y，则添加对应的源文件
-if(ENABLE_FEATURE_Y)
-    list(APPEND SUBARCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/feature_y.c")
+if(CONFIG_XIP_EN)     # 如果启用XIP
+    list(APPEND SUBARCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/linker.lds.S")
+else()
+    list(APPEND SUBARCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/linker_xip.lds.S")
 endif()
 
-# 始终添加的源文件
-list(APPEND SUBARCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/subcommon.c")
+if(CONFIG_64BIT_EN)  # 如果启用64位模式
+    list(APPEND SUBARCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/start64.S")
+else()
+    list(APPEND SUBARCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/start32.S")
+endif()
 
+if(CONFIG_VIRT_EXT_EN)  # 如果启用虚拟扩展
+    list(APPEND SUBARCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/virt_ext.S")
+endif()
+
+list(APPEND SUBARCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/weak.S")
 # 将源文件传递给父目录
-set(SUBARCH_SOURCES ${SUBARCH_SOURCES} PARENT_SCOPE)    
+set(SUBARCH_SOURCES ${SUBARCH_SOURCES} PARENT_SCOPE)

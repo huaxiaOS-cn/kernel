@@ -7,8 +7,7 @@
  * 该文件定义 启动阶段 段表相关的汇编函数
  */
 
- #ifndef _ASM_ARM_SECTIONS_H
- #define _ASM_ARM_SECTIONS_H
- 
- #endif  /* _ASM_ARM_SECTIONS_H */
- 
+#ifndef _ASM_ARM_SECTIONS_H
+#define _ASM_ARM_SECTIONS_H
+
+#endif  /* _ASM_ARM_SECTIONS_H */

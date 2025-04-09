@@ -8,7 +8,7 @@ if (CONFIG_64BIT_EN STREQUAL "ON")
 else()
     add_definitions(-D__SYS_PAGE_OFFSET__=0xC0000000) # 32位下给内核分配最后1G虚拟地址空间
 endif()
-add_definitions(-D__SYS_KERNEL_OFFSET__ = 0x00008000) # 内核地址相对内核起始地址的偏移
+add_definitions(-D__SYS_KERNEL_OFFSET__ =0x00008000) # 内核地址相对内核起始地址的偏移
 ##  架构配置
 set(CONFIG_ARCH_TYPE "arm" CACHE STRING "选择目标架构")
 set_property(CACHE CONFIG_ARCH_TYPE PROPERTY STRINGS "arm" "riscv" "x86")   # 可选的架构类型
@@ -21,9 +21,18 @@ set(CONFIG_BIG_ENDIAN_EN OFF CACHE BOOL "是否启用大端模式" ) # 默认小
 if (CONFIG_BIG_ENDIAN_EN STREQUAL "ON")
     add_definitions(-D__SYS_BIG_ENDIAN__)
 endif()
+add_definitions(-D__SYS_PAGE_SIZE__ =0x1000) # 页大小配置，单位byte
+
 set(CONFIG_MMU_EN ON CACHE BOOL "是否启用MMU内存管理单元")
+if (CONFIG_BIG_ENDIAN_EN STREQUAL "ON")
+    add_definitions(-D__SYS_PG_RAM_SIZE__=0x5000) # 页表大小配置，单位byte
+else()
+    add_definitions(-D__SYS_PG_RAM_SIZE__=0x0) # 页表大小配置，单位byte
+endif()
+
 set(CONFIG_VIRT_EXT_EN OFF CACHE BOOL "是否启用虚拟扩展")
 set(CONFIG_SMP_EN OFF CACHE BOOL "是否启用对称多处理器支持")
+set(CONFIG_XIP_EN ON CACHE BOOL "是否启用就地执行支持,即代码可以直接从Flash执行而无需先复制到RAM中")
 
 set(CONFIG_CPU_MITIGATIONS_EN OFF CACHE BOOL "是否启用CPU安全漏洞缓解")
 
