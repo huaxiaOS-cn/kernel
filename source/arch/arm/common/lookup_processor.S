@@ -7,17 +7,17 @@
  * 该文件定义了 查找处理器类型的功能
  */
 #error "lookup_processor is not implemented yet."
-.globl __g_func_lookup_processor_type
-__g_func_lookup_processor_type:
+SYM_FUNC_START(__g_func_lookup_processor_type)
     bx lr
+SYM_FUNC_END(__g_func_lookup_processor_type)
 
-    ENTRY(lookup_processor_type)
+SYM_FUNC_START(lookup_processor_type)
     stmfd    sp!, {r4 - r6, r9, lr}
     mov    r9, r0
     bl    __lookup_processor_type
     mov    r0, r5
     ldmfd    sp!, {r4 - r6, r9, pc}
-ENDPROC(lookup_processor_type)
+SYM_FUNC_ENDT(lookup_processor_type)
 
 /*
  * 读取处理器ID寄存器（cp# 15, CR0），并在构建的链接中查找

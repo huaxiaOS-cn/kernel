@@ -43,7 +43,8 @@
  */
     .arm     // 指定接下来的代码是 ARM模式 的指令，而不是Thumb模式
     __START  // 指定代码段
-ENTRY(stext)
+SYM_FUNC_START(stext)
+
 // 安装虚拟化支持
     bl    __g_func_hyp_stub_install
 // 获取处理器ID
@@ -57,3 +58,6 @@ ENTRY(stext)
 // 设置 MMU 启用后的跳转地址，初始化页表
 // 跳转到__g_func_mmap_switched -> start_common.S
     ldr    r0, =__g_func_mmap_switched
+
+    // 函数体内容保持不变
+SYM_FUNC_END(stext)

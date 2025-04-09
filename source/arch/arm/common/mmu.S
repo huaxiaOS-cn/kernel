@@ -7,8 +7,7 @@
  * 该文件定义了 启动早期MMU的功能
  */
 /* 启动MMU后，跳转到该函数 */
-__g_func_mmap_switched:
-
+SYM_FUNC_START(__g_func_mmap_switched)
     mov    r7, r1
     mov    r8, r2
     mov    r10, r0
@@ -16,7 +15,7 @@ __g_func_mmap_switched:
     adr    r4, __g_func_mmap_switched_data
     mov    fp, #0
 
-    b    start_kernel    // 跳转到 start_kernel 函数
+    b    start_kernel
+SYM_FUNC_END(__g_func_mmap_switched)
 
-/* ... */
 __g_func_mmap_switched_data:
