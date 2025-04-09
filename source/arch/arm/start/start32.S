@@ -3,7 +3,7 @@
  * This file is encoded in UTF-8. 
  * If there is garbled text, please open it in this format.
  */
-/*
+ /*
  * 该文件是32位系统的启动代码
  * 这个文件应当由解压缩代码调用，它的主要功能是初始化MMU，设置页表，然后跳转到内核代码
  */
