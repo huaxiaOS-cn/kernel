@@ -1,0 +1,18 @@
+# 强制所有文本文件使用LF换行符
+* text=auto eol=lf
+
+# 明确指定二进制文件类型
+*.png binary
+*.jpg binary
+*.gz binary
+*.zip binary
+
+# 源代码文件显式设置
+*.c text
+*.h text
+*.S text
+*.md text
+*.txt text
+*.cmake text
+*.sh text
+*.json text
