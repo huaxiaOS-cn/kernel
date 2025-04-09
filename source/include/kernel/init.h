@@ -1,4 +1,4 @@
-/* SPDX-License-Identifier: GPL-2.0 */
+﻿/* SPDX-License-Identifier: GPL-2.0 */
 #ifndef _HUAXIAOS_INIT_H
 #define _HUAXIAOS_INIT_H
 

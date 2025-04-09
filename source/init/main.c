@@ -1,4 +1,4 @@
-
+﻿
 static noinline void __ref __noreturn rest_init(void)
 {
     1. 启动 init 进程
